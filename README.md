@@ -22,7 +22,7 @@ $ git checkout OCE-0.16.1
 $ cd ~/gitroot/pythonocc-core
 $ git checkout 0.16.0
 $ cd ~/gitroot/ccad
-$ git checkout tp/py3-port
+$ git checkout master
 $ git branch
 ```
 OCE and PythonOCC need to be of together compatible versions.
@@ -61,9 +61,10 @@ $ python3 core_dimensions.py
 ```
 ### CCAD installation
 ```
+$ cd ~/gitroot/ccad
 $ sudo python3 setup.py install --prefix=/usr/local
+$ unittest/test_all.py
 ```
-Only the ccad.model module is running well with the PythonOCC version used here.
 
 Testing:
 ```
@@ -74,4 +75,9 @@ $ ipython3
 : display, start_display, add_menu, add_function_to_menu = SimpleGui.init_display()
 : display.DisplayShape(s1.shape, update = True)
 : start_display()
+: import ccad.display as cd
+: s1 = cm.sphere(1.0)
+: v1 = cd.view()
+: v1.display(s1)
+: exit
 ```
